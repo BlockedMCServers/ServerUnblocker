@@ -1,5 +1,6 @@
-package com.blockedmcservers;
+package com.blockedmcservers.compat;
 
+import com.blockedmcservers.config.ServerUnblockerConfig;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.shedaniel.autoconfig.AutoConfigClient;

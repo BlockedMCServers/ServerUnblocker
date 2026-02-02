@@ -35,8 +35,8 @@ public abstract class OnlineServerEntryMixin extends ServerSelectionList.Entry i
 
     @Inject(method = "renderContent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/multiplayer/ServerSelectionList$OnlineServerEntry;drawIcon(Lnet/minecraft/client/gui/GuiGraphics;IILnet/minecraft/resources/Identifier;)V"))
     public void serverunblocker$showBlock(GuiGraphics guiGraphics, int i, int j, boolean bl, float f, CallbackInfo ci) {
-        if(this.serverBlocked) {
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BLOCKED_SPRITE, this.getContentRight() - 24, this.getContentY() + 10, 0.0F, 0.0F, 16, 16, 16, 16);
+        if(this.serverBlocked && ServerUnblocker.config.icon) {
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BLOCKED_SPRITE, this.getContentRight() - 20, this.getContentY() + 12, 0.0F, 0.0F, 16, 16, 16, 16);
         }
     }
 

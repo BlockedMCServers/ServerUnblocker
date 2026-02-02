@@ -8,15 +8,12 @@ import net.minecraft.client.multiplayer.resolver.ResolvedServerAddress;
 import net.minecraft.client.multiplayer.resolver.ServerAddress;
 import net.minecraft.client.multiplayer.resolver.ServerAddressResolver;
 
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.ServiceLoader;
+import java.util.*;
 import java.util.function.Predicate;
 
-public class IsAllowedCheck {
+public class BlockCheck {
 
-    private final HashMap<String, Boolean> blockedServers = new HashMap<>();
+    private final List<String> blockedServers = new ArrayList<>();
     private final ImmutableList<Predicate<String>> immutableList = Streams.stream(ServiceLoader.load(BlockListSupplier.class)).map(BlockListSupplier::createBlockList).filter(Objects::nonNull).collect(ImmutableList.toImmutableList());
 
     /**
@@ -68,11 +65,15 @@ public class IsAllowedCheck {
      * @param hostIp
      */
     private void postServerBlock(String hostName, String hostIp) {
-        // We don't want to flood our system
-        if(blockedServers.containsKey(hostName)) return;
+        // Respect user privacy
+        if(!ServerUnblocker.config.telemetry) return;
 
-        ServerUnblocker.LOGGER.info("Block found, sending to our API, thank you!");
-        blockedServers.put(hostName, true);
+        // We don't want to flood our system
+        if(blockedServers.contains(hostName)) return;
+
+        ServerUnblocker.LOGGER.info("Blocked server found, sending to our API, thank you!");
+
+        blockedServers.add(hostName);
     }
 
 }

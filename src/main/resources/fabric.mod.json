@@ -3,15 +3,16 @@
 	"id": "serverunblocker",
 	"version": "${version}",
 	"name": "serverunblocker",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Ignore Mojangs blocked servers!",
 	"authors": [
-		"Me!"
+		"james090500"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://blockedmcservers.net/",
+		"sources": "https://github.com/BlockedMCServers/ServerUnblocker",
+		"issues": "https://github.com/BlockedMCServers/ServerUnblocker/issues"
 	},
-	"license": "mit",
+	"license": "MIT",
 	"icon": "assets/serverunblocker/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -19,7 +20,7 @@
 			"com.blockedmcservers.ServerUnblocker"
 		],
 		"modmenu": [
-			"com.blockedmcservers.ServerUnblockerModMenu"
+          "com.blockedmcservers.compat.ServerUnblockerModMenu"
 		]
 	},
 	"mixins": [
@@ -32,6 +33,7 @@
 		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.21.11",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"cloth-config": ">=21.11.0"
 	}
 }

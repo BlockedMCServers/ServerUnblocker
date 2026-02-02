@@ -14,6 +14,7 @@ public class ServerNameResolverMixin {
 
     @Redirect(method = "resolveAddress", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/resolver/AddressCheck;isAllowed(Lnet/minecraft/client/multiplayer/resolver/ServerAddress;)Z"))
     private static boolean serverunblocker$createFromService(AddressCheck instance, ServerAddress serverAddress) {
+        // We dont need any logging here as everything always resolves
         return true;
     }
 
