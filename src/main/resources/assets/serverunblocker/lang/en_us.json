@@ -1,0 +1,7 @@
+{
+  "text.autoconfig.serverunblocker.option.title": "Server Unblocker Config",
+  "text.autoconfig.serverunblocker.option.icon.@PrefixText": "Do you want to show an icon for blocked servers in your server list?",
+  "text.autoconfig.serverunblocker.option.icon": "Show Icon",
+  "text.autoconfig.serverunblocker.option.telemetry.@PrefixText": "Do you want to send blocked servers to our API so we can get a full accurate list?",
+  "text.autoconfig.serverunblocker.option.telemetry": "Enable Telemetry"
+}
